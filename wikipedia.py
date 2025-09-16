@@ -3,6 +3,7 @@ from utils import truncate
 
 wiki = wikipediaapi.Wikipedia(user_agent="Entrevista Técnica Quantit", language="en")
 
+
 def is_a_wikipedia_link(text):
     return "wikipedia.org" in text
 
@@ -26,6 +27,8 @@ def prompt_wikipedia_link_or_title():
         log_found_page(title, page)
         return title, page
 
+# Podría ocuparme de tirar las secciones de referencias y links externos, o de asegurarme de que las secciones no queden demasiado grandes,
+# pero la idea era no sobrepensarlo y que la solución sea simple
 def get_sections(page):
     sections = []
 

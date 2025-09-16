@@ -3,6 +3,7 @@ from embedding import get_embedded_wikipedia_page
 from llm import process_valid_query
 from commands import print_instructions, is_quitting, is_changing_subject
 
+
 if __name__ == '__main__':
     print_instructions()
 
