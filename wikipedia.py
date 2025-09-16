@@ -27,7 +27,8 @@ def prompt_wikipedia_link_or_title():
         log_found_page(title, page)
         return title, page
 
-# Podría ocuparme de tirar las secciones de referencias y links externos, o de asegurarme de que las secciones no queden demasiado grandes,
+# Podría ocuparme de tirar las secciones de referencias y links externos, o de asegurarme de que las secciones no queden demasiado grandes;
+# además, actualmente no se incluye la información de la barra de la derecha, epígrafes, etc.,
 # pero la idea era no sobrepensarlo y que la solución sea simple
 def get_sections(page):
     sections = []
