@@ -15,14 +15,20 @@ def format_prompt(question, context):
 def process_valid_query(user_input, collection):
     results = collection.query(query_texts=[user_input], n_results=1)
     retrieved_chunk = results['documents'][0][0]
+
     prompt = format_prompt(user_input, retrieved_chunk)
+
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
             {"role": "system",
-             "content": "You are a concise conversational chatbot. Answer using ONLY the information provided. If you the answer is not there, say you don't know."},
+             "content": "You are a concise conversational chatbot. Answer using ONLY the information provided. If the answer is not there, say you don't know."},
             {"role": "user", "content": prompt}
         ]
     )
+
+    print_response(response, retrieved_chunk)
+
+def print_response(response, retrieved_chunk):
     print("\nResponse:", response.choices[0].message.content)
     print("\nSource:", truncate(retrieved_chunk))
